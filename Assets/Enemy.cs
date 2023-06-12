@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour {
 
 
 	public void damage() {
-		//this.health -= 25;
+		this.health -= 100;
 
 		if (this.health <= 0)
 			Destroy(this.gameObject);

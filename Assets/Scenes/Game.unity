@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 210578074}
   - component: {fileID: 210578076}
   m_Layer: 0
-  m_Name: roundedsquare
+  m_Name: BlueTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc798d2089ff94f0face571385821a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 3152179813780410189, guid: 61f5379f047a34aa5897fb9c8f75c9a2, type: 3}
 --- !u!1 &618454825
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,14 +4,17 @@ using UnityEngine;
 using System;
 
 
-public class BlueTower : MonoBehaviour {	
+public class BlueTower : MonoBehaviour {
+
+	private static float SHOOTING_COOLDOWN = 0.25f;
 	
 	private float rotationAngle;
-
+	public GameObject bullet;
 	
 	// Start is called before the first frame update
     void Start() {
         this.rotationAngle = this.transform.localRotation.eulerAngles.z;
+	    StartCoroutine(this.shoot());
     }
 
 
@@ -37,12 +40,15 @@ public class BlueTower : MonoBehaviour {
 	}
 	
 
-    // Update is called once per frame
+    /**
+	 * Updates this {@code GameObject} every frame.
+	 */
     void Update() {
         GameObject closestEnemy = this.getClosestEnemy();
 		if (closestEnemy == null)
 			return;
-		
+
+		// Rotate to face the enemy
 		float enemyX = closestEnemy.transform.position.x;
 		float enemyY = closestEnemy.transform.position.y;
 		float myX = this.transform.position.x;
@@ -60,4 +66,10 @@ public class BlueTower : MonoBehaviour {
 		this.transform.Rotate(0f, 0f, (thetaDeg - this.rotationAngle));
 		this.rotationAngle = thetaDeg;
     }
+
+	private IEnumerator shoot() {
+		yield return new WaitForSeconds(BlueTower.SHOOTING_COOLDOWN);
+		Instantiate(this.bullet, this.transform.position, this.transform.rotation);
+		StartCoroutine(this.shoot());
+	}
 }

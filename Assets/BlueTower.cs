@@ -70,10 +70,12 @@ public class BlueTower : MonoBehaviour {
 		this.rotationAngle = thetaDeg;
     }
 
+	
 	private IEnumerator shoot() {
 		yield return new WaitForSeconds(BlueTower.SHOOTING_COOLDOWN);
 		if(enemyToShoot)
 			Instantiate(this.bullet, this.transform.position, this.transform.rotation);
 		StartCoroutine(this.shoot());
 	}
+	
 }

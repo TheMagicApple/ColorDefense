@@ -9,6 +9,7 @@ public class BlueTower : MonoBehaviour {
 	// Tower settings
 	private static float SHOOTING_COOLDOWN = 0.25f;
 	private static int DAMAGE = 25;
+	private static int RANGE = 2;
 
 	// Instance variables
 	private float rotationAngle;
@@ -44,6 +45,21 @@ public class BlueTower : MonoBehaviour {
 
 		return closestEnemy;
 	}
+
+
+	private bool inRange() {
+		GameObject closestEnemy = this.getClosestEnemy();
+		if (closestEnemy == null)
+			return false;
+		
+		float enemyX = closestEnemy.transform.position.x;
+		float enemyY = closestEnemy.transform.position.y;
+		float myX = this.transform.position.x;
+		float myY = this.transform.position.y;
+
+		float distance = (float) Math.Sqrt(Math.Pow(enemyX - myX, 2) + Math.Pow(enemyY - myY, 2));
+		return distance <= RANGE;
+	}
 	
 
     /**
@@ -72,18 +88,16 @@ public class BlueTower : MonoBehaviour {
 
 		this.transform.Rotate(0f, 0f, (thetaDeg - this.rotationAngle));
 		this.rotationAngle = thetaDeg;
-
-		
     }
 
 	
 	private IEnumerator shoot() {
-		yield return new WaitForSeconds(BlueTower.SHOOTING_COOLDOWN);
-		if(enemyToShoot) {
+		yield return new WaitForSeconds(SHOOTING_COOLDOWN);
+		if(this.enemyToShoot && this.inRange()) {
 		    GameObject bulletObj = Instantiate(this.bullet,
 											   this.transform.position,
 											   this.transform.rotation);
-			bulletObj.GetComponent<Bullet>().setDamage(BlueTower.DAMAGE);
+			bulletObj.GetComponent<Bullet>().setDamage(DAMAGE);
 		}
 		StartCoroutine(this.shoot());
 	}

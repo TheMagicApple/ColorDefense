@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
+
+	private int damage;
+	
 	
     // Start is called before the first frame update
     void Start() {
-        
+		
     }
 
     // Update is called once per frame
@@ -25,9 +28,14 @@ public class Bullet : MonoBehaviour {
 	
 	public void OnTriggerEnter2D(Collider2D c) {
 		if (c.tag == "Enemy") {
-			c.gameObject.GetComponent<Enemy>().damage();
+			c.gameObject.GetComponent<Enemy>().damage(this.damage);
 			Destroy(this.gameObject);
 		}
+	}
+
+
+	public void setDamage(int damage) {
+		this.damage = damage;
 	}
 	
 }

@@ -6,8 +6,11 @@ using System;
 
 public class BlueTower : MonoBehaviour {
 
+	// Tower settings
 	private static float SHOOTING_COOLDOWN = 0.25f;
-	
+	private static int DAMAGE = 25;
+
+	// Instance variables
 	private float rotationAngle;
 	private bool enemyToShoot;
 	public GameObject bullet;
@@ -73,8 +76,12 @@ public class BlueTower : MonoBehaviour {
 	
 	private IEnumerator shoot() {
 		yield return new WaitForSeconds(BlueTower.SHOOTING_COOLDOWN);
-		if(enemyToShoot)
-			Instantiate(this.bullet, this.transform.position, this.transform.rotation);
+		if(enemyToShoot) {
+		    GameObject bulletObj = Instantiate(this.bullet,
+											   this.transform.position,
+											   this.transform.rotation);
+			bulletObj.GetComponent<Bullet>().setDamage(BlueTower.DAMAGE);
+		}
 		StartCoroutine(this.shoot());
 	}
 	

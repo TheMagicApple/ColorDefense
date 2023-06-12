@@ -9,11 +9,13 @@ public class BlueTower : MonoBehaviour {
 	private static float SHOOTING_COOLDOWN = 0.25f;
 	
 	private float rotationAngle;
+	private bool enemyToShoot;
 	public GameObject bullet;
 	
 	// Start is called before the first frame update
     void Start() {
         this.rotationAngle = this.transform.localRotation.eulerAngles.z;
+		this.enemyToShoot = false;
 	    StartCoroutine(this.shoot());
     }
 
@@ -45,6 +47,7 @@ public class BlueTower : MonoBehaviour {
 	 */
     void Update() {
         GameObject closestEnemy = this.getClosestEnemy();
+		this.enemyToShoot = closestEnemy != null;
 		if (closestEnemy == null)
 			return;
 
@@ -69,7 +72,8 @@ public class BlueTower : MonoBehaviour {
 
 	private IEnumerator shoot() {
 		yield return new WaitForSeconds(BlueTower.SHOOTING_COOLDOWN);
-		Instantiate(this.bullet, this.transform.position, this.transform.rotation);
+		if(enemyToShoot)
+			Instantiate(this.bullet, this.transform.position, this.transform.rotation);
 		StartCoroutine(this.shoot());
 	}
 }

@@ -6,16 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
 
-	/**
-	 * Path finding algorithm
-	 *
-	 * 1) Array of points, in order, to visit
-	 * 2) Each enemy has a current point index
-	 * 3) In Update() rotate and move towards that point
-	 * 4) If in range of that point, go to next point
-	 * 5) If reached the end (currentPoint + 1 is out of bounds of the array), then
-	 *    that enemy reached the goal ==> the player loses or their base takes damage
-	 */
+
 
 	public static Vector2[] PATH = new Vector2[] {new Vector2(1.22f, 1.50f),
 												  new Vector2(1.22f, -4.55f)};

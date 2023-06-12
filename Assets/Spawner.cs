@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
     }
 
     private IEnumerator spawn(){
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         Instantiate(enemy,transform.position,Quaternion.identity);
         StartCoroutine(spawn());
     }

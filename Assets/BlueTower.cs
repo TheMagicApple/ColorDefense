@@ -17,6 +17,7 @@ public class BlueTower : MonoBehaviour {
         this.rotationAngle = this.transform.localRotation.eulerAngles.z;
 		this.enemyToShoot = false;
 	    StartCoroutine(this.shoot());
+		
     }
 
 
@@ -68,6 +69,8 @@ public class BlueTower : MonoBehaviour {
 
 		this.transform.Rotate(0f, 0f, (thetaDeg - this.rotationAngle));
 		this.rotationAngle = thetaDeg;
+
+		
     }
 
 	

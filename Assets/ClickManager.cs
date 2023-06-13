@@ -5,20 +5,25 @@ using UnityEngine;
 public class ClickManager : MonoBehaviour {
 	
     public GameObject blueTower;
-
+    public GameObject greenTower;
+    public GameObject orangeTower;
+    public GameObject purpleTower;
 	
+    GameObject[] towers;
     // Start is called before the first frame update
     void Start() {
-        
+        towers=new GameObject[]{blueTower,greenTower,orangeTower,purpleTower};
     }
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetMouseButtonDown(0)) {
+        if(Input.GetMouseButtonDown(0) && ButtonManager.towerPlacing>0) {
             Vector3 v3 = Input.mousePosition;
  		    v3.z = 10.0f;
  		    v3 = Camera.main.ScreenToWorldPoint(v3);
-            Instantiate(blueTower,v3,Quaternion.identity);
+            Instantiate(towers[ButtonManager.towerPlacing-1],v3,Quaternion.identity);
+            ButtonManager.towerPlacing=0;
+            
         }
     }
    

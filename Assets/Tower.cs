@@ -12,9 +12,9 @@ public abstract class Tower : MonoBehaviour {
 	public static float RANGE_SHORT = 0.125f;
 
 	// In seconds per bullet
-	public static float FIRERATE_HIGH = 1.0f;
+	public static float FIRERATE_HIGH = 0.15f;
 	public static float FIRERATE_MEDIUM = 0.5f;
-	public static float FIRERATE_LOW = 0.25f;
+	public static float FIRERATE_LOW = 1f;
 
 	// As a fraction of enemy health
 	public static float DAMAGE_HIGH = 0.5f;

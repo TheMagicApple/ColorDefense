@@ -25,10 +25,11 @@ public class PurpleTower : Tower {
 		yield return new WaitForSeconds(this.getShootingCooldown());
 		if(base.enemyToShoot && this.inRange()) {
 			for (int i = 0; i < 3; i++) {
+				Quaternion rotation = this.transform.rotation;
+				rotation.z *= UnityEngine.Random.Range(0.75f, 1.25f);
 				GameObject bulletObj = Instantiate(base.bullet,
 												   this.transform.position,
-												   this.transform.rotation);
-				new WaitForSeconds(0.5f);
+												   rotation);
 				bulletObj.GetComponent<Bullet>().setDamage(this.getDamage());
 			}
 		}

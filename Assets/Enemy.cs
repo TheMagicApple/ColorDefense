@@ -89,17 +89,17 @@ public class Enemy : MonoBehaviour {
 
 
 	public static void increaseSpawnSpeed() {
-		Enemy.spawnSpeed += Enemy.spawnSpeed * 0.1f;
+		Enemy.spawnSpeed += Enemy.spawnSpeed * 0.2f;
 	}
 
 
 	public static void decreaseSpawnDelay() {
-		Enemy.spawnDelay -= Enemy.spawnDelay * 0.1f;
+		Enemy.spawnDelay -= Enemy.spawnDelay * 0.2f;
 	}
 
 
 	public static void increaseSpawnHealth() {
-		Enemy.spawnHealth += Enemy.spawnHealth * 0.2f;
+		Enemy.spawnHealth += Enemy.spawnHealth * 0.4f;
 	}
 
 }

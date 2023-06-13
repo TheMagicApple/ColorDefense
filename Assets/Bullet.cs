@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-	private int damage;
+	private float damage;
 	
 	
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour {
 	}
 
 
-	public void setDamage(int damage) {
+	public void setDamage(float damage) {
 		this.damage = damage;
 	}
 	

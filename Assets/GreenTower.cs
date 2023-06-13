@@ -4,20 +4,20 @@ using UnityEngine;
 using System;
 
 
-public class BlueTower : Tower {
+public class GreenTower : Tower {
 
 	public override float getShootingCooldown() {
-		return Tower.FIRERATE_MEDIUM;
+		return Tower.FIRERATE_HIGH;
 	}
 
 
 	public override float getDamage() {
-		return Tower.DAMAGE_MEDIUM;
+		return Tower.DAMAGE_LOW;
 	}
 
 
 	public override float getRange() {
-		return Tower.RANGE_MEDIUM;
+		return Tower.RANGE_SHORT;
 	}
 
 

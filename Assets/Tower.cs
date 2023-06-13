@@ -6,9 +6,25 @@ using System;
 
 public abstract class Tower : MonoBehaviour {
 
+	// As a fraction of the screen width
+	public static float RANGE_LONG = 1.0f;
+	public static float RANGE_MEDIUM = 0.25f;
+	public static float RANGE_SHORT = 0.125f;
+
+	// In seconds per bullet
+	public static float FIRERATE_HIGH = 1.0f;
+	public static float FIRERATE_MEDIUM = 0.5f;
+	public static float FIRERATE_LOW = 0.25f;
+
+	// As a fraction of enemy health
+	public static float DAMAGE_HIGH = 0.5f;
+	public static float DAMAGE_MEDIUM = 0.25f;
+	public static float DAMAGE_LOW = 0.1f;
+	
+
 	// Instance variables
 	private float rotationAngle;
-	private bool enemyToShoot;
+	public bool enemyToShoot;
 	public GameObject bullet;
 
 	
@@ -43,7 +59,7 @@ public abstract class Tower : MonoBehaviour {
 	}
 
 
-	private bool inRange() {
+	public bool inRange() {
 		GameObject closestEnemy = this.getClosestEnemy();
 		if (closestEnemy == null)
 			return false;
@@ -53,8 +69,12 @@ public abstract class Tower : MonoBehaviour {
 		float myX = this.transform.position.x;
 		float myY = this.transform.position.y;
 
+		float aspect = (float) Screen.width / Screen.height;
+		float worldHeight = Camera.main.orthographicSize * 2;
+		float worldWidth = worldHeight * aspect;
+
 		float distance = (float) Math.Sqrt(Math.Pow(enemyX - myX, 2) + Math.Pow(enemyY - myY, 2));
-		return distance <= getRange();
+		return distance <= worldWidth * getRange();
 	}
 	
 
@@ -87,7 +107,7 @@ public abstract class Tower : MonoBehaviour {
     }
 
 	
-	private IEnumerator shoot() {
+	public IEnumerator shootDefault() {
 		yield return new WaitForSeconds(getShootingCooldown());
 		if(this.enemyToShoot && this.inRange()) {
 		    GameObject bulletObj = Instantiate(this.bullet,
@@ -100,7 +120,8 @@ public abstract class Tower : MonoBehaviour {
 
 
 	public abstract float getShootingCooldown();
-	public abstract int getDamage();
+	public abstract float getDamage();
 	public abstract float getRange();
+	public abstract IEnumerator shoot();
 	
 }

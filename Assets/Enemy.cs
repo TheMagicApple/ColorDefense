@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
 												  new Vector2(1.22f, -4.55f)};
 	
 
+	private int maxHealth;
 	private int health;
 	private int targetIndex;
 	private float rotationAngle;
@@ -19,7 +20,8 @@ public class Enemy : MonoBehaviour {
 	
     // Start is called before the first frame update
     void Start() {
-        this.health = 100;
+		this.maxHealth = 100;
+        this.health = this.maxHealth;
 		this.targetIndex = 0;
 		this.rotationAngle = this.transform.localRotation.eulerAngles.z;
     }
@@ -70,8 +72,8 @@ public class Enemy : MonoBehaviour {
     }
 
 
-	public void damage(int damage) {
-		this.health -= damage;
+	public void damage(float damage) {
+		this.health -= (int) (this.maxHealth * damage);
 
 		if (this.health <= 0)
 			Destroy(this.gameObject);

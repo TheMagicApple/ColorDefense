@@ -13,8 +13,8 @@ public class Bullet : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
-        this.transform.position += this.transform.up * 0.08f;
+    void FixedUpdate() {
+        this.transform.position += this.transform.up * 0.25f;
 
 		float aspect = (float) Screen.width / Screen.height;
 		float worldHeight = Camera.main.orthographicSize * 2;

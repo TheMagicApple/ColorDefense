@@ -17,15 +17,28 @@ public class ButtonManager : MonoBehaviour
         
     }
     public void blueTower(){
-        towerPlacing=1;
+        if(MoneyManager.money>=15){
+            towerPlacing=1;
+            MoneyManager.money-=15;
+        }
+       
     }
     public void greenTower(){
-        towerPlacing=2;
+        if(MoneyManager.money>=10){
+            towerPlacing=2;
+            MoneyManager.money-=10;
+        }
     }
     public void orangeTower(){
-        towerPlacing=3;
+        if(MoneyManager.money>=20){
+            towerPlacing=3;
+            MoneyManager.money-=20;
+        }
     }
     public void purpleTower(){
-        towerPlacing=4;
+        if(MoneyManager.money>=20){
+            towerPlacing=4;
+            MoneyManager.money-=20;
+        }
     }
 }

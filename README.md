@@ -1,6 +1,6 @@
 # Color Defense
 ## 🎮 Play Color Defense
-👇 Download the Code \
+👇 Download the Code from GitHub \
 🚪 Open the Releases Folder and Extract either the Windows or Mac Zip \
 🚀 Run ColorDefense.exe (windows) or ColorDefense.app (mac) \
 🔥 Have a ton of fun!  

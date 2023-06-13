@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour {
 	public static Vector2[] PATH = new Vector2[] {new Vector2(1.22f, 1.50f),
 												  new Vector2(1.22f, -4.55f)};
 
-	private static float spawnSpeed = 0.01f;
+	private static float spawnSpeed = 0.04f;
 	private static float spawnDelay = 1.0f;
 	private static float spawnHealth = 100.0f;
 	
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour {
 
 	
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
 		// Check if the enemy reached the goal
 		if (this.targetIndex >= Enemy.PATH.Length) {
 			Spawner.lost=true;

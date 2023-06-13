@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour {
     void Update() {
 		// Check if the enemy reached the goal
 		if (this.targetIndex >= Enemy.PATH.Length) {
+			Spawner.lost=true;
 			Destroy(this.gameObject);
 			Debug.Log("enemy reached the goal");
 			return;

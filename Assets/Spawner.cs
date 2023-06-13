@@ -7,6 +7,8 @@ public class Spawner : MonoBehaviour {
 	private int round;
     public GameObject enemy;
 
+    public static bool lost=false;
+    public GameObject endPanel;
 	
     // Start is called before the first frame update
     void Start() {
@@ -18,14 +20,16 @@ public class Spawner : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        
+        if(lost){
+            endPanel.SetActive(true);
+        }
     }
 	
 
     private IEnumerator spawn() {
         yield return new WaitForSeconds(Enemy.getSpawnDelay());
         Instantiate(this.enemy, this.transform.position, Quaternion.identity);
-        StartCoroutine(this.spawn());
+        if(!lost) StartCoroutine(this.spawn());
     }
 
 	

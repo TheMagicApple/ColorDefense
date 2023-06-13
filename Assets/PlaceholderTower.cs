@@ -19,7 +19,7 @@ public class PlaceholderTower : MonoBehaviour
         transform.position=v3;
 
 		if (!ClickManager.canPlace(v3.x, v3.y))
-			this.GetComponent<SpriteRenderer>().color = new Color(0.9f, 0.3f, 0.3f);
+			this.GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.66f, 0.66f);
 		else
 		    this.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f);
     }

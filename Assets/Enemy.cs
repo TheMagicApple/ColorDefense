@@ -75,9 +75,9 @@ public class Enemy : MonoBehaviour {
 	public void damage(float damage) {
 		this.health -= (int) (this.maxHealth * damage);
 
-		if (this.health <= 0)
+		if (this.health <= 0){
 			MoneyManager.money+=5;
-			Debug.Log(MoneyManager.money);
 			Destroy(this.gameObject);
+		}
 	}
 }

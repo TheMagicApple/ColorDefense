@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour {
 			Enemy.decreaseSpawnDelay();
 		if (this.round % 3 == 2)
 			Enemy.increaseSpawnHealth();
-		this.round++;
+		if(!lost) this.round++;
         roundText2.text="ROUND "+round;
 		if(!lost) StartCoroutine(incrementRound());
 	}

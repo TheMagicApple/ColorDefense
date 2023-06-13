@@ -1,5 +1,4 @@
 # Color Defense
-# ColorDefense
 ## 🎮 Play Color Defense!
 👇 Download the Code \
 🚪 Open the Releases Folder and Extract either the Windows or Mac Zip \

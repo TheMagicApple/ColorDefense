@@ -17,6 +17,10 @@ public class PlaceholderTower : MonoBehaviour
  		v3.z = 10.0f;
  		v3 = Camera.main.ScreenToWorldPoint(v3);
         transform.position=v3;
-        
+
+		if (!ClickManager.canPlace(v3.x, v3.y))
+			this.GetComponent<SpriteRenderer>().color = new Color(0.9f, 0.3f, 0.3f);
+		else
+		    this.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f);
     }
 }

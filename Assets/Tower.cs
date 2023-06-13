@@ -16,7 +16,7 @@ public abstract class Tower : MonoBehaviour {
 	public static float FIRERATE_MEDIUM = 0.5f;
 	public static float FIRERATE_LOW = 1f;
 
-	// As a fraction of enemy health
+	// As a fraction of 100
 	public static float DAMAGE_HIGH = 0.5f;
 	public static float DAMAGE_MEDIUM = 0.25f;
 	public static float DAMAGE_LOW = 0.1f;

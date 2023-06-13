@@ -4,24 +4,25 @@ using UnityEngine;
 
 
 public class Enemy : MonoBehaviour {
-
-
-
-
+	
 	public static Vector2[] PATH = new Vector2[] {new Vector2(1.22f, 1.50f),
 												  new Vector2(1.22f, -4.55f)};
+
+	private static float spawnSpeed = 0.01f;
+	private static float spawnDelay = 1.0f;
+	private static float spawnHealth = 100.0f;
 	
 
-	private int maxHealth;
-	private int health;
+	private float speed;
+	private float health;
 	private int targetIndex;
 	private float rotationAngle;
 	
 	
     // Start is called before the first frame update
     void Start() {
-		this.maxHealth = 100;
-        this.health = this.maxHealth;
+		this.speed = Enemy.spawnSpeed;
+        this.health = Enemy.spawnHealth;
 		this.targetIndex = 0;
 		this.rotationAngle = this.transform.localRotation.eulerAngles.z;
     }
@@ -58,7 +59,7 @@ public class Enemy : MonoBehaviour {
 		this.rotationAngle = thetaDeg;
 
 		// Move the enemy
-		this.transform.position += this.transform.up * 0.01f;
+		this.transform.position += this.transform.up * this.speed;
 		myX = this.transform.position.x;
 		myY = this.transform.position.y;
 
@@ -73,11 +74,32 @@ public class Enemy : MonoBehaviour {
 
 
 	public void damage(float damage) {
-		this.health -= (int) (this.maxHealth * damage);
+		this.health -= (int) (100 * damage);
 
-		if (this.health <= 0){
+		if (this.health <= 0) {
 			MoneyManager.money+=5;
 			Destroy(this.gameObject);
 		}
 	}
+
+
+	public static float getSpawnDelay() {
+		return Enemy.spawnDelay;
+	}
+
+
+	public static void increaseSpawnSpeed() {
+		Enemy.spawnSpeed += Enemy.spawnSpeed * 0.1f;
+	}
+
+
+	public static void decreaseSpawnDelay() {
+		Enemy.spawnDelay -= Enemy.spawnDelay * 0.1f;
+	}
+
+
+	public static void increaseSpawnHealth() {
+		Enemy.spawnHealth += Enemy.spawnHealth * 0.2f;
+	}
+
 }

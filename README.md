@@ -1,8 +1,10 @@
 # Color Defense
-## Quick Start
+# ColorDefense
+## 🎮 Play Color Defense!
 👇 Download the Code \
 🚪 Open the Releases Folder and Extract either the Windows or Mac Zip \
 🚀 Run ColorDefense.exe (windows) or ColorDefense.app (mac)
+🔥 Have a ton of fun!  
 
 ## Build (From Source)
 1. Clone or download the repository from GitHub.

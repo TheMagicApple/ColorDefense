@@ -26,7 +26,7 @@ public class PurpleTower : Tower {
 		if(base.enemyToShoot && this.inRange()) {
 			for (int i = 0; i < 3; i++) {
 				Quaternion rotation = this.transform.rotation;
-				rotation.z *= UnityEngine.Random.Range(0.75f, 1.25f);
+				rotation.z += UnityEngine.Random.Range(-0.5f, 0.5f);
 				GameObject bulletObj = Instantiate(base.bullet,
 												   this.transform.position,
 												   rotation);

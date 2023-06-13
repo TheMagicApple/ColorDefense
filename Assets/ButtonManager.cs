@@ -53,6 +53,9 @@ public class ButtonManager : MonoBehaviour
         MoneyManager.money=30;
         Spawner.lost=false;
         towerPlacing=0;
+		Enemy.setSpawnSpeed(0.04f);
+		Enemy.setSpawnDelay(1.0f);
+		Enemy.setSpawnHealth(100.0f);
         SceneManager.LoadScene("Game");
     }
 }

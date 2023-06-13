@@ -104,4 +104,19 @@ public class Enemy : MonoBehaviour {
 		Enemy.spawnHealth += Enemy.spawnHealth * 0.4f;
 	}
 
+
+	public static void setSpawnSpeed(float spawnSpeed) {
+		Enemy.spawnSpeed = spawnSpeed;
+	}
+
+
+	public static void setSpawnDelay(float spawnDelay) {
+		Enemy.spawnDelay = spawnDelay;
+	}
+
+
+	public static void setSpawnHealth(float spawnHealth) {
+		Enemy.spawnHealth = spawnHealth;
+	}
+
 }

@@ -77,7 +77,8 @@ public class Enemy : MonoBehaviour {
 		this.health -= (int) (100 * damage);
 
 		if (this.health <= 0) {
-			MoneyManager.money+=5;
+			if(MoneyManager.money<=97) MoneyManager.money+=3;
+			else MoneyManager.money=100;
 			Destroy(this.gameObject);
 		}
 	}

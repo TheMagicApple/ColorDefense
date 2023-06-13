@@ -22,9 +22,9 @@ public class ButtonManager : MonoBehaviour
         }
     }
     public void blueTower(){
-        if(MoneyManager.money>=15){
+        if(MoneyManager.money>=10){
             towerPlacing=1;
-            MoneyManager.money-=15;
+            MoneyManager.money-=10;
         }
        
     }

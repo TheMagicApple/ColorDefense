@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour {
     public static bool lost=false;
     public GameObject endPanel;
 	public TMP_Text roundText;
+    public TMP_Text roundText2;
     // Start is called before the first frame update
     void Start() {
 		this.round = 1;
@@ -43,6 +44,7 @@ public class Spawner : MonoBehaviour {
 		if (this.round % 3 == 2)
 			Enemy.increaseSpawnHealth();
 		this.round++;
+        roundText2.text="ROUND "+round;
 		if(!lost) StartCoroutine(incrementRound());
 	}
 	

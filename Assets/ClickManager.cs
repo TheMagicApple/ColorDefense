@@ -19,7 +19,8 @@ public class ClickManager : MonoBehaviour {
 
 
 	public static bool canPlace(float x, float y) {
-		foreach(GameObject tower in ClickManager.towersPlaced){
+		if(x>6f) return false;
+        foreach(GameObject tower in ClickManager.towersPlaced){
 			float distance = Mathf.Sqrt(Mathf.Pow(x - tower.transform.position.x, 2) +
 										Mathf.Pow(y - tower.transform.position.y, 2));
 			if (distance < 0.5f)

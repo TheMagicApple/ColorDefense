@@ -181,7 +181,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $20
+  m_text: '$30
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 484b83e843ba34641b5f9e62775e7ae2, type: 2}
   m_sharedMaterial: {fileID: 9200101640499328820, guid: 484b83e843ba34641b5f9e62775e7ae2, type: 2}
@@ -647,6 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 2022860302539794307, guid: b1ce42709e34d784992d10b64b38e848, type: 3}
   endPanel: {fileID: 876120632}
+  roundText: {fileID: 1378741599}
 --- !u!4 &481136727
 Transform:
   m_ObjectHideFlags: 0

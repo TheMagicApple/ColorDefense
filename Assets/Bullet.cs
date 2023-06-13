@@ -14,13 +14,13 @@ public class Bullet : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        this.transform.position += this.transform.up * 0.05f;
+        this.transform.position += this.transform.up * 0.08f;
 
 		float aspect = (float) Screen.width / Screen.height;
 		float worldHeight = Camera.main.orthographicSize * 2;
 		float worldWidth = worldHeight * aspect;
 
-		if (this.transform.position.x < -worldWidth || this.transform.position.x > worldWidth ||
+		if (this.transform.position.x < -worldWidth/2 || this.transform.position.x > worldWidth/2 ||
 			this.transform.position.y < -worldHeight || this.transform.position.y > worldHeight)
 			Destroy(this.gameObject);
     }

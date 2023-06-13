@@ -35,9 +35,9 @@ public class ButtonManager : MonoBehaviour
         }
     }
     public void orangeTower(){
-        if(MoneyManager.money>=20){
+        if(MoneyManager.money>=30){
             towerPlacing=3;
-            MoneyManager.money-=20;
+            MoneyManager.money-=30;
         }
     }
     public void purpleTower(){

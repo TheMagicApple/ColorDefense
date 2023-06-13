@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Spawner : MonoBehaviour {
 
 	private int round;
@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour {
 
     public static bool lost=false;
     public GameObject endPanel;
-	
+	public TMP_Text roundText;
     // Start is called before the first frame update
     void Start() {
 		this.round = 1;
@@ -22,6 +22,7 @@ public class Spawner : MonoBehaviour {
     void Update() {
         if(lost){
             endPanel.SetActive(true);
+            roundText.text="You Survived to Round "+round;
         }
     }
 	
@@ -42,7 +43,7 @@ public class Spawner : MonoBehaviour {
 		if (this.round % 3 == 2)
 			Enemy.increaseSpawnHealth();
 		this.round++;
-		StartCoroutine(incrementRound());
+		if(!lost) StartCoroutine(incrementRound());
 	}
 	
 }

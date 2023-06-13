@@ -1,4 +1,4 @@
-# ColorDefense
+# Color Defense
 ## Quick Start
 👇 Download the Code \
 🚪 Open the Releases Folder and Extract either the Windows or Mac Zip \

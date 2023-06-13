@@ -5,6 +5,7 @@ using UnityEngine;
 public class ButtonManager : MonoBehaviour
 {
     public static int towerPlacing=0;
+    public GameObject placeholderTower;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,11 @@ public class ButtonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(towerPlacing>0){
+            placeholderTower.SetActive(true);
+        }else{
+            placeholderTower.SetActive(false);
+        }
     }
     public void blueTower(){
         if(MoneyManager.money>=15){

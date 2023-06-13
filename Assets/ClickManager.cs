@@ -14,6 +14,7 @@ public class ClickManager : MonoBehaviour {
     private static List<GameObject> towersPlaced=new List<GameObject>();
     // Start is called before the first frame update
     void Start() {
+        towersPlaced=new List<GameObject>();
         towers=new GameObject[]{blueTower,greenTower,orangeTower,purpleTower};
     }
 

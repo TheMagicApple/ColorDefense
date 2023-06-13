@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     public static int towerPlacing=0;
@@ -15,11 +15,14 @@ public class ButtonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(towerPlacing>0){
-            placeholderTower.SetActive(true);
-        }else{
-            placeholderTower.SetActive(false);
+        if(SceneManager.GetActiveScene().name=="Game"){
+            if(towerPlacing>0){
+                placeholderTower.SetActive(true);
+            }else{
+                placeholderTower.SetActive(false);
+            }
         }
+        
     }
     public void blueTower(){
         if(MoneyManager.money>=10){
@@ -45,5 +48,11 @@ public class ButtonManager : MonoBehaviour
             towerPlacing=4;
             MoneyManager.money-=20;
         }
+    }
+    public void retry(){
+        MoneyManager.money=30;
+        Spawner.lost=false;
+        towerPlacing=0;
+        SceneManager.LoadScene("Game");
     }
 }
